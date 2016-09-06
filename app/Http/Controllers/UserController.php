@@ -6,14 +6,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    function login()
-    {
-        return view('users.login');
-    }
-
 
     function index()
     {
@@ -25,6 +21,20 @@ class UserController extends Controller
     {
 
         return view('users.create');
+    }
+
+    function login()
+    {
+            return view('users.login');
+
+    }
+function postLogin(Request $request)
+    {
+        if(Auth::attempt($request->only('email','password'))){
+
+            dd(Auth::user());
+        }
+
     }
 
     function store(Request $request)

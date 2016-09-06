@@ -11,13 +11,7 @@
 |
 */
 
-Route::get('/','UserController@login');
 
-Route::get('/users', 'UserController@index');
-Route::get('/users/create', 'UserController@create');
-Route::get('/users/{id}/edit', 'UserController@edit')->name('editUser');
-Route::post('/users/{id}/update', 'UserController@update')->name('Update');
-Route::post('/users', 'UserController@store');
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +25,16 @@ Route::post('/users', 'UserController@store');
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('/','UserController@login');
+
     Route::get('/users', 'UserController@index');
+    Route::get('login', 'UserController@login')->name('login');
+    Route::post('login', 'UserController@postLogin')->name('postLogin');
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/create', 'UserController@create');
+    Route::get('/users/{id}/edit', 'UserController@edit')->name('editUser');
+    Route::post('/users/{id}/update', 'UserController@update')->name('Update');
+    Route::post('/users', 'UserController@store');
 });
 
 

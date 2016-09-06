@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('content')
     <div class="row">
-        <form action="" method="POST">
+        <form action="{{route('postLogin')}}" method="POST">
             {{csrf_field()}}
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
