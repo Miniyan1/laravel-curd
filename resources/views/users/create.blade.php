@@ -2,6 +2,7 @@
 @section('content')
     <div class="row">
         <form action="{{url('users')}}" method="POST">
+            {{csrf_field()}}
             <div class="form-group">
                 <label for="exampleInputEmail1">FirstName</label>
                 <input type="text" class="form-control" name="first_name" placeholder="First Name"  >

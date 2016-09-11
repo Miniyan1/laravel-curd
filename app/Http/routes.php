@@ -25,18 +25,24 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/','UserController@login');
-
-    Route::get('/users', 'UserController@index');
     Route::get('login', 'UserController@login')->name('login');
+    Route::get('/', 'UserController@login')->name('login');
+    Route::get('logout', 'UserController@logout')->name('logout');
     Route::post('login', 'UserController@postLogin')->name('postLogin');
+
+    Route::group(['middleware' => ['auth']], function () {
     Route::get('/users', 'UserController@index');
-    Route::get('/users/create', 'UserController@create');
+    Route::get('/users', 'UserController@index')->name('userlist');
+    Route::get('/users/create', 'UserController@create')->name('createUser');
     Route::get('/users/{id}/edit', 'UserController@edit')->name('editUser');
     Route::post('/users/{id}/update', 'UserController@update')->name('Update');
+    Route::delete('/users/{id}', 'UserController@delete')->name('deleteUser');
     Route::post('/users', 'UserController@store');
+        Route::get('/home','HomeController@home');
+    });
+
 });
+ Route::post('executeSearch', array('uses'=> 'SearchController@executeSearch'));
 
 
 
-Route::get('/home', 'HomeController@index');

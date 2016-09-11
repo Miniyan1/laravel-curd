@@ -19,7 +19,7 @@
                 <input type="text" class="form-control" name="email" placeholder="Email" value="{{ $users->email}}">
             </div>><div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" name="email" placeholder="password" value="{{ $users->password}}">
+                <input type="password" class="form-control" name="password" placeholder="password" value="{{ $users->password}}">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Phone</label>

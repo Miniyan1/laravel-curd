@@ -14,6 +14,7 @@ class AddEmailAndPasswordToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('email')->unique;
+            $table->string('password');
 
 
         });
@@ -28,6 +29,7 @@ class AddEmailAndPasswordToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email')->unique;
+            $table->dropColumn('password');
 
         });
     }
