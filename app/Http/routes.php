@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::delete('/users/{id}', 'UserController@delete')->name('deleteUser');
     Route::post('/users', 'UserController@store');
         Route::get('/home','HomeController@home');
+        Route::get('/profile','HomeController@profile');
     });
 
 });

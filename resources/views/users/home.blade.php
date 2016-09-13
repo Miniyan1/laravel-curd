@@ -2,11 +2,23 @@
 
 @section('content')
   <div class="row">
-      <div class="card card-block" style="border: double darkgray">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="container">
+          <div class="card card-block"></div>
+      </div>
+      @foreach($users as $user)
+          <div class="card card-block" style="border: double darkgray">
+          <h4 class="card-title">{{$user->first_name." " . $user->last_name}}</h4>
+
+                  {{$user->first_name }}<br>
+                  {{$user->last_name }}
+                  {{$user->address }}
+                  {{$user->phone }}
+                  {{$user->email }}
+
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
-      </div>
+      </div><br>
+      @endforeach
+      {{$users->links()}}
   </div>
 @endsection
